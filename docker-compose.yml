@@ -1,0 +1,28 @@
+version: "3"
+services:
+  analyzer:
+    build: ./analyzer
+    command: /bin/sh -c 'sleep 30; python analyze.py'
+    networks:
+      - cassandra
+    env_file:
+     - ./global.env
+  bank:
+    build: ./bank
+    command: /bin/sh -c 'sleep 25; python transaction.py'
+    networks:
+      - cassandra
+    env_file:
+     - ./global.env
+  cassandra:
+    build: ./cassandra
+    ports:
+      - 9042:9042
+    networks:
+      - cassandra
+    volumes:
+      - ./cassandra/node1_data:/var/lib/cassandra
+
+networks:
+  cassandra:
+    external: true

@@ -1,0 +1,4 @@
+CREATE  KEYSPACE IF NOT EXISTS cassandra_demo
+   WITH REPLICATION = {
+      'class' : 'SimpleStrategy', 'replication_factor' : 1
+   };
