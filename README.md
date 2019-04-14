@@ -1,6 +1,4 @@
 ### About
-A simple producer - consumer with Cassandra as data storage.
-
 - "bank" app creates Transactions and stores them in Cassandra
 - "analyzer" checks for suspicious Transactions
 
@@ -10,6 +8,7 @@ A simple producer - consumer with Cassandra as data storage.
 ### Install
 ```bash
 # clone the repo
+git clone git@github.com:ondrejbenes/cassandra-demo.git
 
 # create docker network
 docker network create cassandra
